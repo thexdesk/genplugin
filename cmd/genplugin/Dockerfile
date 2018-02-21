@@ -6,7 +6,6 @@ RUN go install github.com/hinshun/genplugin/cmd/genplugin
 FROM alpine:3.7
 COPY --from=build /go/bin/genplugin bin/
 WORKDIR /opt/plugin
-COPY rootfs /opt/plugin/rootfs
-COPY config.json /opt/plugin/config.json
+COPY plugin /opt/plugin
 ENTRYPOINT ["genplugin"]
 CMD ["--help"]
