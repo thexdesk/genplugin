@@ -3,7 +3,7 @@ RUN apk add -U g++ make
 COPY . /go/src/github.com/hinshun/genplugin
 RUN go install github.com/hinshun/genplugin/cmd/genplugin
 
-FROM alpine:3.7
+FROM alpine:3.21.3
 COPY --from=build /go/bin/genplugin bin/
 WORKDIR /opt/plugin
 COPY plugin /opt/plugin
